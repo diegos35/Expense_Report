@@ -19,6 +19,6 @@ Route::get('/', function () {
 
 Route::get('/test', function () {
     return view('test',[
-        'title'=> 'Curso de Larevel viene'
+        'title'=> 'Curso de Larevel vieneeeee'
     ]);
 });
