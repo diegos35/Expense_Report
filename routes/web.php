@@ -3,8 +3,8 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
-
-
+use phpDocumentor\Reflection\Types\Resource_;
+use App\Http\Controllers\ExpenseReportController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,3 +19,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/index',[HomeController::class, 'index']);
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
+
+Route::resource('/expense_reports', ExpenseReportController::class); 
