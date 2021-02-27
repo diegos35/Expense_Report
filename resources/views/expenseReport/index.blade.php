@@ -18,6 +18,7 @@
                     <tr><!--Fila-->
                         <td>{{ $expenseReport->title }}</td><!--Columna-->
                         <td><a href="/expense_reports/{{$expenseReport->id}}/edit" class="btn btn-info">Edit</a></td>
+                        <td><a href="/expense_reports/{{ $expenseReport->id }}/confirmDelete" class="btn btn-danger">Delete</a></td>
                     </tr>
                 @endforeach
             </table>
