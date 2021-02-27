@@ -16,7 +16,7 @@ class ExpenseReportController extends Controller
     {
         //return ExpenseReport::all();
         return view('expenseReport.index',[
-            'expenseReports' => ExpenseReport::all()
+            'expenseReports' => ExpenseReport::all() //expenseReports debe llamarse igual que el template foreach
         ]);
     }
 
@@ -27,7 +27,7 @@ class ExpenseReportController extends Controller
      */
     public function create()
     {
-        //
+        return view('expenseReport.create'); //where is the view
     }
 
     /**
@@ -38,7 +38,11 @@ class ExpenseReportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $report = new ExpenseReport();
+        $report->title =  $request->get('title');
+        $report->save();
+
+        return redirect('/expense_reports');
     }
 
     /**
