@@ -37,9 +37,13 @@ class ExpenseReportController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        $validateData = $request->validate([
+            'title' =>'required|min:3'
+        ]);  
+
         $report = new ExpenseReport();
-        $report->title =  $request->get('title');
+        $report->title =  $validateData['title'];
         $report->save();
 
         return redirect('/expense_reports');
