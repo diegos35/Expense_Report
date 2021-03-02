@@ -13,11 +13,20 @@
     </div>
     <div class="row">
         <div class="col">
+            @if($errors->any()) <!--si existe algun error es un Objeto especial errors-->
+                <div class="alert alert-danger"> 
+                    <ul>
+                        @foreach ($errors->all() as $error)<!--Recorremos todos los errores-->
+                            <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form action="/expense_reports" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="title">Title:</label>
-                    <input type="text" class="form-control" id="title" name="title" placeholder="Type a title">
+                <input type="text" class="form-control" id="title" name="title" placeholder="Type a title" value="{{old('title')}}"><!--Old para que el campo no se borre-->
                 </div>
                 <button type="submit" class="btn btn-primary">Save</button>
             </form>

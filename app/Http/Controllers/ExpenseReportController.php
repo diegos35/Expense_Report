@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreExpenseReports;
 use Illuminate\Http\Request;
 use App\Models\ExpenseReport;
 
@@ -36,14 +37,14 @@ class ExpenseReportController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreExpenseReports $request)
     {   
-        $validateData = $request->validate([
-            'title' =>'required|min:3'
-        ]);  
+        // $validateData = $request->validate([
+        //     'title' =>'required|min:3'
+        // ]);  
 
         $report = new ExpenseReport();
-        $report->title =  $validateData['title'];
+        $report->title =  $request->title;
         $report->save();
 
         return redirect('/expense_reports');
